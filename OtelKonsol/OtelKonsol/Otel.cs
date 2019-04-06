@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    class Program
+    class Otel
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }
