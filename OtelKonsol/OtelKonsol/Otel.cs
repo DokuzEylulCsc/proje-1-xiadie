@@ -8,5 +8,6 @@ namespace OtelKonsol
 {
     class Otel
     {
+        Otel
     }
 }
