@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    class Rezervasyon:Otel
+    class Rezervasyon : Otel
     {
         internal void RezervasyonYap(int isim, string tip, bool havuz, bool deniz, bool orman, Oda[] odalar, DateTime baslangic, DateTime bitis, string[,] takvim, int[,] kullanici)//dışarıdan girilenler
         {
@@ -43,4 +43,30 @@ namespace OtelKonsol
 
             }
         }
+        private bool TariheBak(int isim, Oda[] odalar, string[,] takvim, DateTime baslangic, DateTime bitis, int odaNo, int[,] kullanici)
+        {
+            int k = Convert.ToInt32(bitis.Day) - Convert.ToInt32(baslangic.Day);
+            int k2 = 0;
+            for (int j = baslangic.Day; j < bitis.Day; j++)//baslangıc ve bitis tarihinin düzgün olması
+            {
+                if (takvim[odaNo, j] == " - ")//eger oda boşsa
+                {
+                    k2++;
+                    if (k2 == k)
+                    {
+                        for (int t = baslangic.Day; t < bitis.Day; t++)
+                        {
+                            takvim[odaNo, t] = " D ";//o odayı o tarihlerde doldur.
+
+                            kullanici[odaNo, t] = isim;
+
+                        }
+                        return true;
+                    }
+                }
+            }
+            Console.WriteLine("o tarihlerde kritere uyan oda bulunamadı");
+            return false;
+        }
+    }
 }
