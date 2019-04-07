@@ -181,6 +181,28 @@ namespace OtelKonsol
         }
         Rezervasyon rezervasyon = new Rezervasyon();
         rezervasyon.RezervasyonYap(isim, tip, havuzManzara, denizManzara, ormanManzara, odalar, baslangic1, bitis1, takvim, kullanici);
-        otel.OtelUygulama(otel);//?
+        otel.OtelUygulama(otel);
+
+    }
+    private void RezervasyonIptal(Otel otel, string[,] takvim)
+    {
+        Rezervasyon rezervasyon = new Rezervasyon();
+        Console.WriteLine("kullanici adi giriniz");
+        int isim = Convert.ToInt32(Console.ReadLine());
+        rezervasyon.RezervasyonIptal(odalar, kullanici, takvim, isim);
+        otel.OtelUygulama(otel);
+    }
+    private void Takvim()
+    {
+        for (int i = 0; i < 36; i++)//36 oda için
+        {
+            for (int j = 0; j < 60; j++)//60 gün
+            {
+                if (j == 0)
+                    takvim[i, j] = Convert.ToString(odalar[i].OdaNumarasi);
+                else
+                    takvim[i, j] = " - ";//bos olan günler
+            }
+        }
     }
 }
