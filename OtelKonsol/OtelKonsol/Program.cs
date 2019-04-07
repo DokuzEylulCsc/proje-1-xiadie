@@ -10,10 +10,7 @@ namespace OtelKonsol
     {
         static void Main(string[] args)
         {
-            kazlkgal
-
-
-                77alo alo alo alo
+            damladamla
         }
     }
 }
