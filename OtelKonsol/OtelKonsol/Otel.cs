@@ -49,4 +49,33 @@ namespace OtelKonsol
         }
     }
 
+    public void OtelUygulama(Otel otel)
+    {
+
+        bool dogrulama = false;
+        int secim = 0;
+        do
+        {
+            try
+            {
+
+                Console.WriteLine("Oda sorgu icin 1 - rezervasyon icin 2 - rezervasyon iptal icin 3 - cikmak icin baska sayi giriniz");
+                secim = int.Parse(Console.ReadLine());
+                switch (secim)
+                {
+                    case 1: { otel.OdaMusaitlik(otel); dogrulama = false; break; }
+                    case 2: { otel.RezervasyonYap(otel); dogrulama = false; break; }
+                    case 3: { otel.RezervasyonIptal(otel, takvim); dogrulama = false; break; }
+                    default: { Environment.Exit(0); break; }
+                }
+
+            }
+            catch (Exception)
+            {
+                dogrulama = true;
+                Console.WriteLine("Hatali giris");
+            }
+        } while (dogrulama);
+
+    }
 }
