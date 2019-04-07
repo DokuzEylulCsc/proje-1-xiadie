@@ -126,4 +126,61 @@ namespace OtelKonsol
                 hata = 1;
             }
         } while (hata == 1);
+        do
+        {
+            hata = 0;
+
+            Console.WriteLine("Yatak tipini seciniz (1 tek - 2 cift - 3 ikiz)");//if'in içinde yatak tiplerine girilmesi gereken sayıları belirtiyor.
+            tip = Console.ReadLine();
+            if (tip == "1")
+                hata = 0;
+            else if (tip == "2")
+                hata = 0;
+            else if (tip == "3")
+                hata = 0;
+            else
+            {
+                hata = 1;//eger başka bir sayı girerse hata veriyor
+                Console.WriteLine("hatali giris");
+            }
+
+
+        } while (hata == 1);
+
+
+        switch (tip)//switch case yapısı kullanarak yatak çeşidi seçimi yaptık.
+        {
+            case "1": tip = "Tek"; break;
+            case "2": tip = "Cift"; break;
+            case "3": tip = "Ikiz"; break;
+            default: Console.WriteLine("hatali giris"); break;
+        }
+        Console.WriteLine("Havuz manzarasi var mi(varsa 1 - yoksa 0)");
+        secim = Console.ReadLine();
+        if (secim == "1")//secim 1 yapılırsa havuz manzaralı odalara girer
+        {
+            havuzManzara = true;
+        }
+        else
+        {
+            havuzManzara = false;
+            Console.WriteLine("Deniz manzarasi var mi(varsa 1 - yoksa 0)");//havuz manzaralı oda secilmezse deniz manzaralı için sorar
+            secim = Console.ReadLine();
+            if (secim == "1")
+            {
+                denizManzara = true;
+            }
+            else
+            {
+                Console.WriteLine("Orman manzarasi var mi(varsa 1 - yoksa 0)");//deniz manzarasıda secilmezse oda manzarası için sorar
+                secim = Console.ReadLine();
+                if (secim == "1")
+                    ormanManzara = true;
+            }
+
+        }
+        Rezervasyon rezervasyon = new Rezervasyon();
+        rezervasyon.RezervasyonYap(isim, tip, havuzManzara, denizManzara, ormanManzara, odalar, baslangic1, bitis1, takvim, kullanici);
+        otel.OtelUygulama(otel);//?
     }
+}
