@@ -10,7 +10,10 @@ namespace OtelKonsol
     {
         static void Main(string[] args)
         {
-            
+            Otel otel = new Otel();
+            otel.OtelUygulama(otel);
+            Console.ReadLine();
+
         }
     }
 }
