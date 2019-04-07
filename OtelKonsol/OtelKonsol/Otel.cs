@@ -78,4 +78,52 @@ namespace OtelKonsol
         } while (dogrulama);
 
     }
-}
+    private void OdaMusaitlik(Otel otel)
+    {
+        Rezervasyon rezervasyon = new Rezervasyon();
+        rezervasyon.OdaMusaitMi(odalar, takvim);//takvime bakıp odaların müsait olduğu yerleri gösteriyor
+
+        otel.OtelUygulama(otel);
+
+    }
+
+    public void RezervasyonYap(Otel otel)
+    {
+        int hata = 1;//do while döngüsünü çıkmaza sokmak için oluşturduk
+        string secim, tip = "";//seçilecek oda
+        int isim = 0;
+        bool havuzManzara = false, denizManzara = false, ormanManzara = false;// en başta hepsini seçilmemiş olarak alıyoruz
+
+        do
+        {
+            hata = 0;
+            try
+            {
+                Console.WriteLine("kimlik no giriniz");
+                isim = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("baslangic tarihini giriniz (gg/aa/yyyy)");
+                string baslangicTarih = Console.ReadLine();
+                baslangic1 = Convert.ToDateTime(baslangicTarih);//belirlenen tarihler arasında başlangıç tarihini alıyor ve başlangıç1e kaydediyor
+                if (baslangic1 < DateTime.Today)
+                    throw new Exception();        //tarihi küçük girince hata verdirmesini sağlamak için throwla catch e yakalatıyoruz
+
+                Console.WriteLine("bitis tarihini giriniz (gg/aa/yyyy)");
+                string bitisTarih = Console.ReadLine();
+                bitis1 = Convert.ToDateTime(bitisTarih);
+                if (bitis1 < DateTime.Today)
+                    throw new Exception();
+                if (bitis1 < baslangic1)
+                    throw new Exception();
+            }
+            catch (FormatException)// tarih haricinde birsey yazılırsa zaman yakalayıp hata veriyor.
+            {
+                Console.WriteLine("yanlis format girdiniz");
+                hata = 1;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("hatali tarih girdiniz");//tarih zaman aralığından farklı girerse yakalayıp hata veriyor.
+                hata = 1;
+            }
+        } while (hata == 1);
+    }
