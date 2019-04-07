@@ -67,6 +67,35 @@ namespace OtelKonsol
             }
             Console.WriteLine("o tarihlerde kritere uyan oda bulunamadı");
             return false;
+
+
+        }
+        public void OdaMusaitMi(Oda[] odalar, string[,] takvim)
+        {
+            for (int i = 0; i < 36; i++)
+            {
+                for (int j = 0; j < 60; j++)
+                {
+                    Console.Write(takvim[i, j]);// tahvimi gösterir
+
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        public void RezervasyonIptal(Oda[] odalar, int[,] kullanici, string[,] takvim, int isim)
+        {
+            for (int i = 0; i < 36; i++)
+            {
+                for (int j = 0; j < 60; j++)
+                {
+                    if (isim == kullanici[i, j])
+                        takvim[i, j] = " - ";// takvimde D olan kısımları "-" yapar.
+
+                }
+            }
+
         }
     }
 }
