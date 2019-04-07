@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    class CiftYataklıOda
+    class CiftYataklıOda:Oda
     {
+        
     }
 }
