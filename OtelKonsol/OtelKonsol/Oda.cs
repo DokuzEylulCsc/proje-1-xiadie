@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    class Oda
-    {
+    
         abstract class Oda
         {
             private int odaNumaralari;
@@ -46,4 +45,4 @@ namespace OtelKonsol
 
         }
     }
-}
+

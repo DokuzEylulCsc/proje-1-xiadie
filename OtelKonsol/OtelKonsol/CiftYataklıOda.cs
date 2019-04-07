@@ -8,7 +8,7 @@ namespace OtelKonsol
 {
     class CiftYataklıOda:Oda
     {
-        public CiftYatakliOda(int no, string manzaraTip)
+        public CiftYataklıOda(int no, string manzaraTip)
         {
             OdaNumarasi = no + 1;
             YatakCesidi = "Cift";
