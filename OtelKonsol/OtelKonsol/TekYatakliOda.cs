@@ -8,5 +8,7 @@ namespace OtelKonsol
 {
     class TekYatakliOda
     {
+        damla
+
     }
 }
