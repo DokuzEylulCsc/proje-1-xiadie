@@ -53,17 +53,17 @@ namespace OtelKonsol
 
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçersiz Giriş Zamanı");
                 return 0.0;
             }
             //08.04.2020 - 09.04.2020 < 0 wrong
-            fark = takvim[takvim.Count - 1].date - end;
+            //fark = takvim[takvim.Count - 1].date - end;
 
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("Invalid end time");
-                return 0.0;
-            }
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("Geçersiz Çıkış Zamanı");
+            //    return 0.0;
+            //}
 
 
             int esit;
