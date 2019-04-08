@@ -13,7 +13,7 @@ namespace OtelKonsol
             this.manzaraTipi = null;
             this.odaNumaralari = odano;
             this.yatakCesidi = "Ikiz Yatakli Oda";
-            this.takvim = new List<Day>(365);
+            this.takvim = new List<Day>(365);  //Takvimimizi 365 günlük aldık.
 
             DateTime date = DateTime.Today;
             Random random = new Random();
@@ -46,7 +46,10 @@ namespace OtelKonsol
         {
             //TİMESPAN 2 DATE ARASI ZAMAN FARKINI BULUR
             TimeSpan fark;
-            //08.04.2019 - 05.04.2019 > 0 hata verir
+            
+
+
+            //08.04.2019 - 05.04.2019 > 0 hata
 
             fark = this.takvim[0].date - start;
 
@@ -55,14 +58,14 @@ namespace OtelKonsol
                 Console.WriteLine("Geçer Giriş Zamanı");
                 return 0.0;
             }
-            //08.04.2020 - 09.04.2020 < 0 hata verir
-            fark = takvim[takvim.Count - 1].date - end;
+            ////08.04.2020 - 09.04.2020 < 0 hata verir
+            //fark = takvim[takvim.Count - 1].date - end;
 
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("gecersiz bitiş zamanı");
-                return 0.0;
-            }
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("gecersiz bitiş zamanı");
+            //    return 0.0;
+            //}
 
 
             int esit;
@@ -99,20 +102,20 @@ namespace OtelKonsol
         {
             //TİMESPAN 2 DATE ARASI ZAMAN FARKINI BULUR
             TimeSpan fark;
-            //08.04.2019 - 05.04.2019 > 0 wrong
+            //08.04.2019 - 05.04.2019 > 0 hata
             fark = this.takvim[0].date - start;
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçersiz Giriş Zamanı");
                 return false;
             }
-            //08.04.2020 - 09.04.2020 < 0 wrong
-            fark = takvim[takvim.Count - 1].date - end;
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("Invalid end time");
-                return false;
-            }
+            ////08.04.2020 - 09.04.2020 < 0 hata
+            //fark = takvim[takvim.Count - 1].date - end;
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("Geçersiz Çıkış Zamanı");
+            //    return false;
+            //}
 
 
             int esit;
@@ -144,27 +147,24 @@ namespace OtelKonsol
 
         }
 
-
-
-
         public bool rezervasyonSorgu(DateTime start, DateTime end)
         {
             //TİMESPAN 2 DATE ARASI ZAMAN FARKINI BULUR
             TimeSpan fark;
-            //08.04.2019 - 05.04.2019 > 0 wrong
+            //08.04.2019 - 05.04.2019 > 0 hata
             fark = this.takvim[0].date - start;
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçersiz Giriş Zamanı");
                 return false;
             }
-            //08.04.2020 - 09.04.2020 < 0 wrong
-            fark = takvim[takvim.Count - 1].date - end;
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("Invalid end time");
-                return false;
-            }
+            ////08.04.2020 - 09.04.2020 < 0 hata
+            //fark = takvim[takvim.Count - 1].date - end;
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("Geçersiz Giriş Zamanı");
+            //    return false;
+            //}
 
 
             int esit;

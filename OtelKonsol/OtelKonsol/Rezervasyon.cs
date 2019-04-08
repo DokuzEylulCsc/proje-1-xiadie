@@ -8,22 +8,23 @@ namespace OtelKonsol
 {
     class Rezervasyon
     {
-
+        //Rezerve methodumuz için alınan parametrelerimiz.
         public static bool rezerve(Otel otel, string musteriTC, string odaTipi, string manzarası
             , DateTime start, DateTime end)
         {
 
-            double price = 0;
+            double price = 0;  //Ücret için double türünde bir değişken tanımladık.
             int sec = sorgu(otel, musteriTC, odaTipi, manzarası, start, end, true);
             if (sec < 0) return false;
             else
             {
-                if (odaTipi.Equals("Tek Yatakli Oda"))
-                    price = otel.tek[sec].rezervasyonYap(start, end, musteriTC);
-                else if (odaTipi.Equals("Cift Yatakli Oda"))
-                    price = otel.cift[sec].rezervasyonYap(start, end, musteriTC);
-                else if (odaTipi.Equals("Ikiz Yatakli Oda"))
-                    price = otel.ikiz[sec].rezervasyonYap(start, end, musteriTC);
+                if (odaTipi.Equals("Tek Yatakli Oda"))   //Oda tipimiz Tek Yatakli Oda şeklinde girilmişse 
+                    price = otel.tek[sec].rezervasyonYap(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezerve işlemini yapar.
+                else if (odaTipi.Equals("Cift Yatakli Oda"))//Oda tipimiz Cift Yatakli Oda şeklinde girilmişse yine aynı şekilde
+                    price = otel.cift[sec].rezervasyonYap(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezerve işlemini yapar.
+                else if (odaTipi.Equals("Ikiz Yatakli Oda"))//Oda tipimiz Ikiz Yatakli Oda şeklinde girilmişse yine aynı şekilde
+                    price = otel.ikiz[sec].rezervasyonYap(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezerve işlemini yapar.
+                //Ucret hesaplama kısmı
                 Console.WriteLine("Toplam ucret = " + price);
                 return true;
             }
@@ -32,6 +33,7 @@ namespace OtelKonsol
 
 
 
+        //Rezervasyon İptal methodumuz için alınan parametrelerimiz.
         public static bool iptal(Otel otel, string musteriTC, string odaTipi, string manzarası
            , DateTime start, DateTime end)
         {
@@ -41,22 +43,27 @@ namespace OtelKonsol
             if (sec < 0) return false;
             else
             {
-                if (odaTipi.Equals("Tek Yatakli Oda"))
-                    otel.tek[sec].rezervasyonIptal(start, end, musteriTC);
-                else if (odaTipi.Equals("Cift Yatakli Oda"))
-                    otel.cift[sec].rezervasyonIptal(start, end, musteriTC);
-                else if (odaTipi.Equals("Ikiz Yatakli Oda"))
-                    otel.ikiz[sec].rezervasyonIptal(start, end, musteriTC);
+                if (odaTipi.Equals("Tek Yatakli Oda")) //Oda tipimiz Tek Yatakli Oda şeklinde girilmişse 
+                    otel.tek[sec].rezervasyonIptal(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezervasyon işlemini iptel eder.
+                else if (odaTipi.Equals("Cift Yatakli Oda"))//Oda tipimiz Cift Yatakli Oda şeklinde girilmişse yine aynı şekilde
+                    otel.cift[sec].rezervasyonIptal(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezervasyon işlemini iptel eder.
+                else if (odaTipi.Equals("Ikiz Yatakli Oda"))//Oda tipimiz Ikiz Yatakli Oda şeklinde girilmişse yine aynı şekilde
+                    otel.ikiz[sec].rezervasyonIptal(start, end, musteriTC);//başlangıç,bitiş tarihleri ve müsteriTc parametrelerini alıp rezervasyon işlemini iptel eder.
                 return true;
             }
 
         }
 
-        // sorgu tipi ekleme ise true döner iptal ise false döner
+
+
+        // Sorgu tipi ekleme ise true döner; iptal ise false döner.
         public static int sorgu(Otel otel, string musteriTC, string odaTipi, string manzarası
          , DateTime start, DateTime end, bool sorguTipi)
         {
+            //Yatak tipi ve manzarasına göre oda müsaitlik sorgusu 
 
+            //Tek Yatakli Oda için sorgu.
+            //Daha sonra "Tek Yatakli Oda" nın Orman,Deniz ve Havuz manzara sorgusu.
             if (odaTipi.Equals("Tek Yatakli Oda"))
             {
                 if (manzarası.Equals("Orman"))
@@ -93,9 +100,10 @@ namespace OtelKonsol
                     }
 
                 }
-
-
             }
+
+            //Ikiz Yatakli Oda için sorgu.
+            //Daha sonra "Ikiz Yatakli Oda" nın Orman,Deniz ve Havuz manzara sorgusu.
             else if (odaTipi.Equals("Ikiz Yatakli Oda"))
             {
                 if (manzarası.Equals("Orman"))
@@ -133,10 +141,10 @@ namespace OtelKonsol
                     }
 
                 }
-
-
-
             }
+
+            //Cift Yatakli Oda için sorgu.
+            //Daha sonra "Cift Yatakli Oda" nın Orman,Deniz ve Havuz manzara sorgusu.
             else if (odaTipi.Equals("Cift Yatakli Oda"))
             {
                 if (manzarası.Equals("Orman"))
@@ -157,8 +165,6 @@ namespace OtelKonsol
                         if (otel.cift[i].rezervasyonSorgu(start, end)) return i;
                         else if (!otel.cift[i].rezervasyonSorgu(start, end) && !sorguTipi)
                             return i;
-
-
                     }
 
                 }
@@ -169,24 +175,17 @@ namespace OtelKonsol
                         if (otel.cift[i].rezervasyonSorgu(start, end)) return i;
                         else if (!otel.cift[i].rezervasyonSorgu(start, end) && !sorguTipi)
                             return i;
-
-
-
                     }
 
                 }
-
-
             }
             return -1;
         }
 
 
 
-
-
-
-        public static void istatistikSorgu(Otel otel)  //İstatiksel Sorgu ile otelimizin doluluk oranına bakıyoruz.
+        //İstatiksel Sorgu ile otelimizin doluluk oranına bakıyoruz.
+        public static void istatistikSorgu(Otel otel)  
         {
             otel.dolulukOranı();
         }

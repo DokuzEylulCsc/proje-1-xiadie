@@ -13,7 +13,7 @@ namespace OtelKonsol
             this.manzaraTipi = null;
             this.odaNumaralari = odano;
             this.yatakCesidi = "Tek Yatakli Oda";
-            this.takvim = new List<Day>(365);
+            this.takvim = new List<Day>(365); //Takvimimizi 365 günlük aldık.
 
             DateTime date = DateTime.Today;
             Random random = new Random();
