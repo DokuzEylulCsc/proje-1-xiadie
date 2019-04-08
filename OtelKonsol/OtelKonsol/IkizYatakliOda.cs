@@ -46,21 +46,21 @@ namespace OtelKonsol
         {
             //TİMESPAN 2 DATE ARASI ZAMAN FARKINI BULUR
             TimeSpan fark;
-            //08.04.2019 - 05.04.2019 > 0 wrong
+            //08.04.2019 - 05.04.2019 > 0 hata verir
 
             fark = this.takvim[0].date - start;
 
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçer Giriş Zamanı");
                 return 0.0;
             }
-            //08.04.2020 - 09.04.2020 < 0 wrong
+            //08.04.2020 - 09.04.2020 < 0 hata verir
             fark = takvim[takvim.Count - 1].date - end;
 
             if (fark.Days < 0)
             {
-                Console.WriteLine("Invalid end time");
+                Console.WriteLine("gecersiz bitiş zamanı");
                 return 0.0;
             }
 

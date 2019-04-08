@@ -104,16 +104,16 @@ namespace OtelKonsol
             fark = this.takvim[0].date - start;
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçersiz Giriş Zamanı");
                 return false;
             }
             //08.04.2020 - 09.04.2020 < 0 wrong
-            fark = takvim[takvim.Count - 1].date - end;
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("Invalid end time");
-                return false;
-            }
+            //fark = takvim[takvim.Count - 1].date - end;
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("Gecersiz Çıkış Zamanı");
+            //    return false;
+            //}
 
 
             int esit;
@@ -156,16 +156,16 @@ namespace OtelKonsol
             fark = this.takvim[0].date - start;
             if (fark.Days > 0)
             {
-                Console.WriteLine("Invalid start time");
+                Console.WriteLine("Geçersiz Giriş Zamanı");
                 return false;
             }
             //08.04.2020 - 09.04.2020 < 0 wrong
-            fark = takvim[takvim.Count - 1].date - end;
-            if (fark.Days < 0)
-            {
-                Console.WriteLine("Invalid end time");
-                return false;
-            }
+            //fark = takvim[takvim.Count - 1].date - end;
+            //if (fark.Days < 0)
+            //{
+            //    Console.WriteLine("Geçersiz Çıkış Zamanı");
+            //    return false;
+            //}
 
 
             int esit;
@@ -183,7 +183,7 @@ namespace OtelKonsol
                     for (int j = i; j < i + Math.Abs(fark.Days); j++)
                     {
                         if (takvim[j].musteriTc != null) return false;
-                        // müsait değil
+                        // tarihlerde oda doluysa müsait değil
 
                     }
                     break;
