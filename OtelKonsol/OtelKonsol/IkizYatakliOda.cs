@@ -13,7 +13,7 @@ namespace OtelKonsol
             this.manzaraTipi = null;
             this.odaNumaralari = odano;
             this.yatakCesidi = "Ikiz Yatakli Oda";
-            this.takvim = new List<Day>(365);
+            this.takvim = new List<Day>(365);  //Takvimimizi 365 günlük aldık.
 
             DateTime date = DateTime.Today;
             Random random = new Random();
@@ -47,7 +47,6 @@ namespace OtelKonsol
             //TİMESPAN 2 DATE ARASI ZAMAN FARKINI BULUR
             TimeSpan fark;
             //08.04.2019 - 05.04.2019 > 0 wrong
-
             fark = this.takvim[0].date - start;
 
             if (fark.Days > 0)
@@ -143,9 +142,6 @@ namespace OtelKonsol
             return true;
 
         }
-
-
-
 
         public bool rezervasyonSorgu(DateTime start, DateTime end)
         {
