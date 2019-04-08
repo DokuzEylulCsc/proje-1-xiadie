@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CiftYataklıOda.cs" />
-    <Compile Include="IkizYataklıOda.cs" />
+    <Compile Include="CiftYatakliOda.cs" />
+    <Compile Include="IkizYatakliOda.cs" />
     <Compile Include="Oda.cs" />
     <Compile Include="Otel.cs" />
     <Compile Include="Program.cs" />

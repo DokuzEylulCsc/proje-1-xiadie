@@ -6,43 +6,30 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    
-        abstract class Oda
-        {
-            private int odaNumaralari;
-            private string yatakCesidi;
-            private bool denizManzarasi = false;
-            private bool havuzManzarasi = false;
-            private bool ormanManzarasi = false;
 
-            public abstract void RezervasyonYap(int odaNo, DateTime baslangic, DateTime bitis);
-            public abstract void RezervasyonIptal();
-            public string YatakCesidi
+    abstract class Oda
+    {
+        public class Day
+        {
+            public string musteriTc { get; set; }
+            public DateTime date;
+            public bool rezeverMi;
+            public double ucret;
+
+            public Day(DateTime date, bool rezeverMi, double ucret)
             {
-                get { return yatakCesidi; }
-                set { yatakCesidi = value; }
-            }
-            public int OdaNumarasi
-            {
-                get { return odaNumaralari; }
-                set { odaNumaralari = value; }
-            }
-            public bool DenizManzarasi
-            {
-                get { return denizManzarasi; }
-                set { denizManzarasi = value; }
-            }
-            public bool HavuzManzarasi
-            {
-                get { return havuzManzarasi; }
-                set { havuzManzarasi = value; }
-            }
-            public bool OrmanManzarasi
-            {
-                get { return ormanManzarasi; }
-                set { ormanManzarasi = value; }
+                this.date = date;
+                this.rezeverMi = rezeverMi;
+                this.ucret = ucret;
             }
 
         }
+        protected int odaNumaralari { get; set; }
+        protected string yatakCesidi { get; set; }
+        protected string manzaraTipi { get; set; }
+        public List<Day> takvim { get; set; }
+
+
     }
+}
 

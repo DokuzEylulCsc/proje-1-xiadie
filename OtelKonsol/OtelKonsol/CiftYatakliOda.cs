@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace OtelKonsol
 {
-    class IkizYataklıOda:Oda
+    class CiftYatakliOda:Oda
     {
-        public IkizYataklıOda(int no, string manzaraTip)
+        public CiftYatakliOda(int no, string manzaraTip)
         {
             OdaNumarasi = no + 1;
-            YatakCesidi = "Ikiz";
+            YatakCesidi = "Cift";
             if (manzaraTip == "Havuz")
                 HavuzManzarasi = true;
             else if (manzaraTip == "Orman")
                 OrmanManzarasi = true;
             else
                 DenizManzarasi = true;
-
         }
         public override void RezervasyonYap(int odaNo, DateTime baslangic, DateTime bitis)
         {
@@ -28,5 +27,6 @@ namespace OtelKonsol
         {
 
         }
+
     }
 }

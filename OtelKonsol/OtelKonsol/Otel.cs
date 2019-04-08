@@ -19,20 +19,20 @@ namespace OtelKonsol
             for (int i = 0; i < 12; i++)//ikiz yataklı odalar için 12 oda ayrıldı 4ü Havuz 4ü Deniz 4ü Orman manzaralı
             {
                 if (i < 4)
-                    odalar[i] = new IkizYataklıOda(100 + i, "Havuz");
+                    odalar[i] = new IkizYatakliOda(100 + i, "Havuz");
                 else if (i < 8)
-                    odalar[i] = new IkizYataklıOda(100 + i, "Orman");
+                    odalar[i] = new IkizYatakliOda(100 + i, "Orman");
                 else
-                    odalar[i] = new IkizYataklıOda(100 + i, "Dag");
+                    odalar[i] = new IkizYatakliOda(100 + i, "Dag");
             }
             for (int i = 0; i + 12 < 24; i++)//Çift yataklı odalar için 12 oda ayrıldı 4ü Havuz 4ü Deniz 4ü Orman manzaralı
             {
                 if (i < 4)
-                    odalar[i + 12] = new CiftYataklıOda(200 + i, "Havuz");
+                    odalar[i + 12] = new CiftYatakliOda(200 + i, "Havuz");
                 else if (i < 8)
-                    odalar[i + 12] = new CiftYataklıOda(200 + i, "Orman");
+                    odalar[i + 12] = new CiftYatakliOda(200 + i, "Orman");
                 else
-                    odalar[i + 12] = new CiftYataklıOda(200 + i, "Dag");
+                    odalar[i + 12] = new CiftYatakliOda(200 + i, "Dag");
             }
             for (int i = 0; i + 24 < 36; i++)//tek  yataklı odalar için 12 oda ayrıldı 4ü Havuz 4ü Deniz 4ü Orman manzaralı
             {
