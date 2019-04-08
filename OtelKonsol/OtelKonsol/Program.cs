@@ -89,10 +89,18 @@ namespace OtelKonsol
                             return;
 
                         }
-
-
                 }
             }
         }
     }
 }
+
+//KAYNAKÇA
+//https://stackoverflow.com/questions/5050102/convert-datetime-to-date-format-dd-mm-yyyy
+//https://www.yazilimkodlama.com/programlama/c-class-encapsulation-kapsulleme/
+//https://github.com/betulaslan94/Otel-Rezervasyon-Sistemi
+//https://www.bilisimogretmeni.com/visual-studio-c/c-classsiniflarda-get-ve-set-kullanimi.html
+//https://gist.github.com/AshikNesin/9876640
+//https://stackoverflow.com/questions/2456471/c-sharp-format-timespan
+//http://www.bilisimlife.net/Yazi/137-C-ile-TimeSpan-Kullanimi.html
+//https://ersoykabacaoglu.blogspot.com/2015/02/c-datetime-ve-timespan-kullanimi.html
